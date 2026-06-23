@@ -8,12 +8,12 @@ export async function fetchNotifications(level, component, message) {
     token = token.slice(1, -1);
   }
 
-  // 1. Enforce the strict 48-character backend limit by cutting it off at 40 safely
+  // enforce the strict 48-character backend limit by cutting it off at 40 safely
   const cleanMessage = String(message).length > 40 
     ? String(message).substring(0, 37) + "..." 
     : String(message);
 
-  // 2. Exact lowercase payload keys required by the validator schema
+  //exact lowercase payload keys required by the validator schema
   const payload = {
     stack: "frontend",
     level: String(level).toLowerCase(),
